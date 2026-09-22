@@ -32,7 +32,7 @@ if not SECRET_KEY:
 DEBUG = os.getenv("DEBUG", "False").lower() == "true"
 
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS", "appli.l2toliara.mg,localhost,127.0.0.1").split(",")
 
 
 # Application definition
@@ -133,6 +133,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
 STATIC_URL = 'static/'
+STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
